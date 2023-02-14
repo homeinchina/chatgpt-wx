@@ -53,7 +53,11 @@ type apiHandler struct{}
 func (*apiHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	// q := r.FormValue("q")
-	q := r.PostFormValue("q")
+	// q := r.PostFormValue("q")
+	decoder := json.NewDecoder(r.Body)
+	var params map[string]string
+	decoder.Decode(&params)
+	q := params["q"]
 	if q == "" {
 		w.Write([]byte("提问信息不能为空！"))
 		return
