@@ -17,7 +17,7 @@ func StartApi() {
 	mux.Handle("/", &apiHandler{})
 
 	server := &http.Server{
-		Addr:    ":8081",
+		Addr:    ":8000",
 		Handler: mux,
 	}
 
