@@ -57,7 +57,7 @@ type ChatGPTRequestBody struct {
 //
 // Completions sendMsg
 func Completions(msg string) (*string, error) {
-	apiKey := config.GetOpenAiApiKey()
+	apiKey := config.GetOpenAiApiKey(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)
 	if apiKey == nil {
 		return nil, errors.New("未配置apiKey")
 	}
